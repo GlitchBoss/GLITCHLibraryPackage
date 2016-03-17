@@ -2,16 +2,15 @@
 
 namespace GLITCH.Utilities
 {
-	public class Miscelanious : MonoBehaviour {
+	public class OtherUtility {
 		
 		public static void SendMessageToAll(string message)
 		{
-			GameObject[] gos = FindObjectsOfType<GameObject>();
+			GameObject[] gos = Object.FindObjectsOfType<GameObject>();
 			foreach (GameObject go in gos)
 			{
 				go.BroadcastMessage(message, SendMessageOptions.DontRequireReceiver);
 			}
 		}
-
 	}
 }
