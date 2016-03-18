@@ -6,10 +6,13 @@ namespace GLITCH.Utilities
 		
 		public static void SendMessageToAll(string message)
 		{
-			GameObject[] gos = Object.FindObjectsOfType<GameObject>();
+			GameObject[] gos = (GameObject[])GameObject.FindObjectsOfType(typeof(GameObject));
 			foreach (GameObject go in gos)
 			{
-				go.BroadcastMessage(message, SendMessageOptions.DontRequireReceiver);
+				if (go && go.transform.parent == null)
+				{
+					go.gameObject.BroadcastMessage(message, SendMessageOptions.DontRequireReceiver);
+				}
 			}
 		}
 	}
