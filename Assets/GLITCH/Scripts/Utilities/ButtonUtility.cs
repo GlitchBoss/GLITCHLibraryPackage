@@ -1,28 +1,29 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace GLITCH.Utilities
 {
 	public class ButtonUtility {
 
-		public static void StartGame()
+		public static void Start_Game()
 		{
 			Time.timeScale = 1.0f;
 			Time.fixedDeltaTime = 0.02f;
-			OtherUtility.SendMessageToAll("StartGame");
+			OtherUtility.SendMessageToAll("OnStartGame");
 		}
 
-		public static void PauseGame()
+		public static void Pause_Game()
 		{
 			Time.timeScale = 0;
 			Time.fixedDeltaTime = 0.0f;
-			OtherUtility.SendMessageToAll("PauseGame");
+			OtherUtility.SendMessageToAll("OnPauseGame");
 		}
 
-		public static void ResumeGame()
+		public static void Resume_Game()
 		{
 			Time.timeScale = 1.0f;
 			Time.fixedDeltaTime = 0.02f;
-			OtherUtility.SendMessageToAll("ResumeGame");
+			OtherUtility.SendMessageToAll("OnResumeGame");
 		}
 
 		public static void ChangeTimeSpeed(float newSpeed)
